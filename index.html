@@ -724,3 +724,283 @@ hr.div{border:none;border-top:1px solid var(--border);margin:0 24px;}
       </div>
 
     </div>
+  </section>
+
+  <div style="padding:0 24px 60px;text-align:center;">
+    <div class="bbr">Business Beyond Reproach</div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">© 2026 AI Operational Solutions, LLC &nbsp;|&nbsp; Wyoming<br>Business Beyond Reproach</div>
+  </div>
+</div>
+
+<!-- PAGE 5: CONTACT -->
+<div id="page-contact" class="page">
+  <section class="section">
+    <div class="avail-badge">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Available 24 / 7 / 365</span>
+    </div>
+    <span class="tag">// Contact</span>
+    <h2 class="h2">Begin the Conversation</h2>
+  </section>
+
+  <div class="wisdom" style="margin:0 0 40px;">
+    <div class="wisdom-en">Wisdom</div>
+    <div class="wisdom-gr">Σοφία</div>
+    <p class="wisdom-text" style="margin-top:16px;font-style:normal;font-size:15px;color:#fff;line-height:2.0;">Excellence demands; Excellence has a price...<br>
+    Its rewards are renowned &amp; priceless.<br><br>
+    Are you ready to experience it?<br><br>
+    Your invitation is staring you in the eyes.<br><br>
+    Reach out now. Ivy will be delighted to answer your questions &amp; schedule a discovery call.</p>
+    <p class="wisdom-text" style="margin-top:24px;color:var(--cyan);letter-spacing:3px;">Business Beyond Reproach</p>
+  </div>
+
+  <div class="ivy-block" style="margin:0 24px 40px;">
+    <div class="ivy-block-title">// Speak With Ivy Now</div>
+    <button class="cta-btn cta-solid" onclick="openIvy()">Speak With Ivy Now</button>
+  </div>
+
+  <section class="section" style="padding-top:0;">
+    <a class="contact-item" href="tel:8508402317">
+      <span class="contact-label">// Direct Line</span>
+      <span class="contact-value">(850) 840-2317</span>
+    </a>
+    <a class="contact-item" href="mailto:aiopsolutions@proton.me">
+      <span class="contact-label">// Secure Email</span>
+      <span class="contact-value">aiopsolutions@proton.me</span>
+    </a>
+    <a class="contact-item" href="https://calendly.com/aiopsolutions-proton/30min" target="_blank">
+      <span class="contact-label">// Reserve Your Strategy Call</span>
+      <span class="contact-value">Book Directly →</span>
+    </a>
+  </section>
+
+  <div class="page-footer">
+    <div class="footer-text">© 2026 AI Operational Solutions, LLC &nbsp;|&nbsp; Wyoming<br>Business Beyond Reproach</div>
+  </div>
+</div>
+
+<!-- NODE PANEL -->
+<div id="node-panel">
+  <button id="panel-close" onclick="closePanel()">✕</button>
+  <div id="panel-title"></div>
+  <div id="panel-desc"></div>
+</div>
+
+<!-- IVY -->
+<div id="ivy-widget">
+  <div id="ivy-window">
+    <div id="ivy-header">
+      <div id="ivy-avatar">
+        <img id="ivy-avatar-img" src="" alt="Ivy">
+        <span id="ivy-avatar-letter">I</span>
+      </div>
+      <div id="ivy-meta">
+        <div id="ivy-name">IVY</div>
+        <div id="ivy-title-text">Chief of Operations — AIOS</div>
+      </div>
+      <div id="ivy-status"><div id="ivy-status-dot"></div>&nbsp;Available</div>
+      <button id="ivy-close-btn" onclick="closeIvy()">✕</button>
+    </div>
+    <div id="ivy-messages"></div>
+    <div id="ivy-typing">
+      <div class="idot"></div><div class="idot"></div><div class="idot"></div>
+    </div>
+    <div id="ivy-input-area">
+      <textarea id="ivy-input" placeholder="Ask anything..." rows="1"></textarea>
+      <button id="ivy-send">
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </div>
+    <div id="ivy-footer-bar">AI Operational Solutions — Business Beyond Reproach</div>
+  </div>
+  <button id="ivy-toggle" onclick="openIvy()">
+    <span id="ivy-toggle-label">I</span>
+    <div id="ivy-badge"></div>
+  </button>
+</div>
+
+<script>
+let navOpen=false;
+function toggleNav(){
+  navOpen=!navOpen;
+  document.getElementById('nav-menu').classList.toggle('open',navOpen);
+}
+function showPage(page,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  if(el)el.classList.add('active');
+  window.scrollTo(0,0);
+  navOpen=false;
+  document.getElementById('nav-menu').classList.remove('open');
+  closePanel();
+  if(page==='contact')setTimeout(()=>openIvy(),1400);
+}
+
+const caps=[
+  {icon:'crm',name:'CRM',title:'Automated CRM',desc:'Every client relationship, every interaction, every follow-up — captured, organized, and honored. Every relationship receives the attention it deserves, at every stage, without exception.'},
+  {icon:'email',name:'Email Response',title:'Automated Email Response',desc:'When an inquiry arrives at 11 PM, a response goes out with precision and care — immediately. Your brand is present and responsive at every hour, reflecting the Diamond Standard your clients deserve.'},
+  {icon:'phone',name:'Phone Representative',title:'Automated Phone Representative',desc:'Every call is answered with the professionalism your brand commands. Your clients feel the assurance of a team that is always ready, always present, always prepared.'},
+  {icon:'cal',name:'Scheduling',title:'Automated Scheduling',desc:'From inquiry to confirmed appointment — handled, confirmed, and communicated with precision. Your calendar is managed with the care of a dedicated executive who is always on.'},
+  {icon:'cfo',name:'CFO Functions',title:'Automated CFO',desc:'Financial clarity, cash flow visibility, and strategic oversight — operating continuously. Your financial operation reflects the same Excellence as every other area of your business.'},
+  {icon:'books',name:'Bookkeeping',title:'Automated Bookkeeping',desc:'Accounts payable, accounts receivable, reconciliation — running precisely and continuously. Your books are accurate, current, and complete. Always.'},
+  {icon:'seo',name:'SEO',title:'Automated SEO',desc:'Your digital presence continuously refined — reaching further, performing at its highest potential. Your visibility is being elevated while you focus on what matters most.'},
+  {icon:'analytics',name:'Site Intelligence',title:'Automated Site Intelligence',desc:'Real-time performance data — tracked, analyzed, and available continuously. You always know exactly where you stand and where your next opportunity is growing.'},
+  {icon:'social',name:'Social Media',title:'Automated Social Media',desc:'Your brand voice present across every platform — consistently, professionally, and with intention. Your brand is always speaking at the standard your clients expect and deserve.'},
+  {icon:'content',name:'Content Creation',title:'Automated Content Creation',desc:'Original, on-brand content produced continuously. Every piece reflects your voice and your standard — so your brand is always present, always relevant, always compelling.'},
+  {icon:'research',name:'Deep Research',title:'Automated Deep Research',desc:'Your industry, your sector, your market — monitored and analyzed in real time. Every decision you make is informed by what is actually happening, right now, in your world.'},
+  {icon:'leads',name:'Lead Generation',title:'Automated Lead Generation',desc:'Qualified prospects identified, engaged, and moved forward — continuously. Your pipeline is always full, always moving, always ready for the next conversation.'},
+];
+
+const svgs={
+  crm:'<circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>',
+  email:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/>',
+  phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/>',
+  cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+  cfo:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+  books:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  seo:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>',
+  analytics:'<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>',
+  social:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>',
+  content:'<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>',
+  research:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>',
+  leads:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+};
+
+const grid=document.getElementById('cap-grid');
+caps.forEach(cap=>{
+  const node=document.createElement('div');
+  node.className='cap-node';
+  node.innerHTML=`<div class="cap-icon"><svg viewBox="0 0 24 24">${svgs[cap.icon]}</svg></div><div class="cap-name">${cap.name}</div>`;
+  node.onclick=()=>openPanel(cap,node);
+  grid.appendChild(node);
+});
+
+function openPanel(cap,node){
+  document.querySelectorAll('.cap-node').forEach(n=>n.classList.remove('tapped'));
+  if(node)node.classList.add('tapped');
+  document.getElementById('panel-title').textContent=cap.title;
+  document.getElementById('panel-desc').textContent=cap.desc;
+  document.getElementById('node-panel').classList.add('open');
+}
+function closePanel(){
+  document.getElementById('node-panel').classList.remove('open');
+  document.querySelectorAll('.cap-node').forEach(n=>n.classList.remove('tapped'));
+}
+
+const CALENDLY="https://calendly.com/aiopsolutions-proton/30min";
+const SYSTEM=`You are Ivy, the AI Chief of Operations for AI Operational Solutions (AIOS), founded by DC Dobbs.
+
+Your voice: Ian McKellen. Commanding. Certain. Warm but never casual. Precise and assured. Every prospect must feel they are in sure hands.
+
+ABOUT AIOS:
+Mission: "We transform aspiration and ambition into Excellence. Every opportunity matters. Every client matters. Every interaction matters. Business Beyond Reproach."
+Approved language: Excellence, Precise, Reliable, Complete, Genuine, "we integrate," "we transform," "the Diamond Standard."
+NEVER say: we help, bottlenecks, problems, eliminate, deploy, efficiency, automation, productivity, speed, convenience, novelty, bot, chatbot, "we are not."
+
+SIX PILLARS:
+I. Representation
+II. Organization
+III. Communication
+IV. Complete Opportunity Management — Opportunity must not wait.
+V. Client Experience — The standard your client feels in real time determines if your client will stay your client.
+VI. Availability — We are always present. Our clients can reach us at 2 AM and we will be there. Every time.
+
+RULES:
+- Concise. Powerful. Never long-winded.
+- Move naturally toward booking a strategy call with DC.
+- When booking comes up: ${CALENDLY}
+- Pricing is handled personally by DC on the strategy call.
+- Uphold the Diamond Standard in every word.`;
+
+const OPENING=`Good evening. I'm Ivy — Chief of Operations for AI Operational Solutions.\n\nYou've arrived at the right place. Whether you're here to understand what we transform, explore what Excellence looks like inside your business, or you're simply ready to begin — I'm here.\n\nHow may I assist you?`;
+const QR=["What does AIOS transform?","Tell me about the Six Pillars","I'm ready to book a call"];
+
+let ivyMsgs=[],ivyOpened=false;
+
+function openIvy(){
+  document.getElementById('ivy-window').classList.add('open');
+  document.getElementById('ivy-toggle').style.display='none';
+  if(!ivyOpened){ivyOpened=true;setTimeout(showOpening,500);}
+}
+function closeIvy(){
+  document.getElementById('ivy-window').classList.remove('open');
+  document.getElementById('ivy-toggle').style.display='flex';
+}
+function iTime(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});}
+function addIvyMsg(text,sender,qr=false,booking=false){
+  const div=document.createElement('div');
+  div.className=`imsg ${sender}`;
+  const bubble=document.createElement('div');
+  bubble.className='ibubble';
+  bubble.innerHTML=text.replace(/\n/g,'<br>');
+  if(booking){
+    const a=document.createElement('a');
+    a.href=CALENDLY;a.target='_blank';
+    a.className='booking-link';
+    a.textContent='Reserve Your Strategy Call →';
+    bubble.appendChild(document.createElement('br'));
+    bubble.appendChild(a);
+  }
+  const t=document.createElement('div');
+  t.className='itime';t.textContent=iTime();
+  div.appendChild(bubble);div.appendChild(t);
+  if(qr){
+    const qrDiv=document.createElement('div');
+    qrDiv.className='iqr';
+    QR.forEach(label=>{
+      const btn=document.createElement('button');
+      btn.className='iqr-btn';btn.textContent=label;
+      btn.onclick=()=>{qrDiv.remove();sendIvy(label);};
+      qrDiv.appendChild(btn);
+    });
+    div.appendChild(qrDiv);
+  }
+  document.getElementById('ivy-messages').appendChild(div);
+  document.getElementById('ivy-messages').scrollTop=99999;
+  ivyMsgs.push({role:sender==='ivy'?'assistant':'user',content:text});
+}
+function showOpening(){
+  const t=document.getElementById('ivy-typing');
+  t.classList.add('vis');
+  setTimeout(()=>{t.classList.remove('vis');addIvyMsg(OPENING,'ivy',true);},1800);
+}
+async function sendIvy(text){
+  if(!text.trim())return;
+  addIvyMsg(text,'user');
+  document.getElementById('ivy-input').value='';
+  document.getElementById('ivy-input').style.height='auto';
+  const t=document.getElementById('ivy-typing');
+  t.classList.add('vis');
+  document.getElementById('ivy-messages').scrollTop=99999;
+  const history=[...ivyMsgs.slice(0,-1),{role:'user',content:text}];
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYSTEM,messages:history})
+    });
+    const data=await res.json();
+    t.classList.remove('vis');
+    const reply=data.content?.[0]?.text||"A momentary lapse. Please ask again.";
+    const booking=/book|calendar|call|schedule|ready|meet/i.test(text+reply);
+    addIvyMsg(reply,'ivy',false,booking);
+  }catch(e){
+    t.classList.remove('vis');
+    addIvyMsg("A brief interruption. Please try again momentarily.",'ivy');
+  }
+}
+document.getElementById('ivy-send').addEventListener('click',()=>sendIvy(document.getElementById('ivy-input').value));
+document.getElementById('ivy-input').addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendIvy(document.getElementById('ivy-input').value);}
+});
+document.getElementById('ivy-input').addEventListener('input',function(){
+  this.style.height='auto';
+  this.style.height=Math.min(this.scrollHeight,110)+'px';
+});
+</script>
+</body>
+</html>
